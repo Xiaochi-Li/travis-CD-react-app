@@ -11,13 +11,13 @@ script:
     - docker run -e CI=true xiaochilidevops/travis-cicd-react-app npm run test -- --coverage --watchAll=false
 
 deploy:
-    provider: elasticbeanstalk
-    region: "us-east-1" ### AWS region of your choice
-    app: "sample-docker-react"
-    env: "Sampledockerreact-env" ### Your EB App environment name
-    bucket_name: "elasticbeanstalk-us-east-1-569265449628" ### S3 bucket name
-    bucket_path: "EBApptest" ### S3 folder name under S3 bucket above
-    on:
-      branch: main
-    access_key_id: "AKIAYJCW5NKOEF7MHUPT"
-    secret_access_key: "kGq1tWr9EAhfeOSLsd+qSiuOT3xlecKrgGDRLdTP"
+  provider: elasticbeanstalk
+  region: "us-east-1" ### AWS region of your choice
+  app: "sample-docker-react"
+  env: "Sampledockerreact-env" ### Your EB App environment name
+  bucket_name: "elasticbeanstalk-us-east-1-569265449628" ### S3 bucket name
+  bucket_path: "EBApptest" ### S3 folder name under S3 bucket above
+  on:
+    branch: main
+  access_key_id: "AKIAYJCW5NKOEF7MHUPT"
+  secret_access_key: "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"
