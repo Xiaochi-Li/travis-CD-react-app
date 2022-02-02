@@ -6,14 +6,15 @@ node_js:
 services: 
     - docker
 before_install: 
-    - docker build -t xiaochilidevops/travis-cicd-react-app -f Dockerfile.dev .
+    - docker build -t travis-cicd-react-app -f Dockerfile.dev .
 script:     
-    - docker run -e CI=true xiaochilidevops/travis-cicd-react-app npm run test -- --coverage --watchAll=false
+    - docker run -e CI=true travis-cicd-react-app
+    - npm run test -- --coverage --watchAll=false
 
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1" ### AWS region of your choice
-  app: "sample-docker-react"
+  app: "sample-docker-react" ### Your EB App name
   env: "Sampledockerreact-env" ### Your EB App environment name
   bucket_name: "elasticbeanstalk-us-east-1-569265449628" ### S3 bucket name
   bucket_path: "EBApptest" ### S3 folder name under S3 bucket above
