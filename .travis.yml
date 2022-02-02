@@ -8,9 +8,9 @@ services:
 before_install: 
     - docker build -t travis-cicd-react-app -f Dockerfile.dev .
 script:     
-    - docker run -e CI=true travis-cicd-react-app
-    - npm run test -- --coverage --watchAll=false
+    - docker run -e CI=true travis-cicd-react-app npm run test -- --coverage --watchAll=false
 
+before_deploy: "echo 'ready?'"
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1" ### AWS region of your choice
